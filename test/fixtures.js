@@ -4,13 +4,15 @@ const object = {
   com: {
     subdomains: {
       foo: {
+        path: {},
         subdomains: {
           bag: {
-            path: {
-              hashes: ['bloop', 'boop', 'bop']
-            },
             subdomains: {
-              bah: {}
+              bah: {
+                path: {
+                  hashes: ['bloop', 'boop', 'bop']
+                }
+              }
             }
           },
 
@@ -47,10 +49,10 @@ const string = [
   '.com',
   '  .foo',
   '    .bag',
-  '      #bloop',
-  '      #boop',
-  '      #bop',
   '      .bah',
+  '        #bloop',
+  '        #boop',
+  '        #bop',
   '    .bar',
   '      /bam',
   '        /boo',
@@ -72,9 +74,9 @@ const urls = [
   'https://baz.bar.foo.com?testing=123',
   'https://baz.bar.foo.com?searching4=something',
   'https://bah.bag.foo.com',
-  'https://bag.foo.com#bop',
-  'https://bag.foo.com#boop',
-  'https://bag.foo.com#bloop'
+  'https://bah.bag.foo.com#bop',
+  'https://bah.bag.foo.com#boop',
+  'https://bah.bag.foo.com#bloop'
 ]
 
 module.exports = {

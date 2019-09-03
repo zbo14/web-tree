@@ -1,6 +1,7 @@
 'use strict'
 
 const assert = require('assert')
+const Domain = require('../../lib/domain')
 const fixtures = require('../fixtures')
 const Path = require('../../lib/path')
 const Tree = require('../../lib/tree')
@@ -36,9 +37,14 @@ describe('lib/tree', () => {
       assert.deepStrictEqual(result, this.tree.get('https://foo.com'))
     })
 
-    it('gets path from top-level domain', () => {
+    it('gets top-level domain', () => {
       const result = this.tree.get('https://com')
-      assert(result instanceof Path)
+      assert(result instanceof Domain)
+    })
+
+    it('gets subdomain', () => {
+      const result = this.tree.get('https://bag.foo.com')
+      assert(result instanceof Domain)
     })
 
     it('returns undefined when it can\'t find top-level domain', () => {
@@ -47,7 +53,7 @@ describe('lib/tree', () => {
     })
 
     it('returns undefined when it can\'t find subdomain', () => {
-      const result = this.tree.get('https://fob.com')
+      const result = this.tree.get('https://fob.foo.com')
       assert.strictEqual(result, undefined)
     })
 
