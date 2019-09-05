@@ -22,7 +22,7 @@ describe('lib/domain', () => {
       this.domain.setSubdomain(['fob'])
       this.domain.setSubdomain(['bar'])
 
-      const result = this.domain.toString(0)
+      const result = this.domain.toString()
 
       assert.strictEqual(result, [
         '.bar',

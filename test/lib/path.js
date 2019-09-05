@@ -38,7 +38,7 @@ describe('lib/path', () => {
 
       this.path.setSearchParams(searchParams)
 
-      const result = this.path.toString(0)
+      const result = this.path.toString()
 
       assert.strictEqual(result, [
         '?alpha=beta',
@@ -54,7 +54,7 @@ describe('lib/path', () => {
       this.path.setSubpath(['zeta'])
       this.path.setSubpath(['alpha'])
 
-      const result = this.path.toString(0)
+      const result = this.path.toString()
 
       assert.strictEqual(result, [
         '/alpha',
