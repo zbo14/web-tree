@@ -27,24 +27,19 @@ describe('lib/tree', () => {
   })
 
   describe('#get()', () => {
-    it('gets a path', () => {
-      const result = this.tree.get('https://foo.com')
+    it('gets domain', () => {
+      const result = this.tree.get('https://bah.bag.foo.com')
+      assert(result instanceof Domain)
+    })
+
+    it('gets path', () => {
+      const result = this.tree.get('https://bar.foo.com/bam')
       assert(result instanceof Path)
     })
 
-    it('gets the same path', () => {
-      const result = this.tree.get('https://foo.com/')
-      assert.deepStrictEqual(result, this.tree.get('https://foo.com'))
-    })
-
-    it('gets top-level domain', () => {
-      const result = this.tree.get('https://com')
-      assert(result instanceof Domain)
-    })
-
-    it('gets subdomain', () => {
-      const result = this.tree.get('https://bag.foo.com')
-      assert(result instanceof Domain)
+    it('gets path when there\'s trailing slash', () => {
+      const result = this.tree.get('https://bah.bag.foo.com/')
+      assert(result instanceof Path)
     })
 
     it('returns undefined when it can\'t find top-level domain', () => {
@@ -57,6 +52,11 @@ describe('lib/tree', () => {
       assert.strictEqual(result, undefined)
     })
 
+    it('returns undefined when it can\'t find subdomain (path specified)', () => {
+      const result = this.tree.get('https://fob.foo.com/fomo')
+      assert.strictEqual(result, undefined)
+    })
+
     it('returns undefined when it can\'t find path', () => {
       const result = this.tree.get('https://foo.com/bar')
       assert.strictEqual(result, undefined)
@@ -64,11 +64,11 @@ describe('lib/tree', () => {
   })
 
   describe('#set()', () => {
-    it('sets top-level domain', () => {
-      const result = this.tree.set('https://org')
+    it('sets path for top-level domain', () => {
+      const result = this.tree.set('https://org/grog')
 
       assert(result instanceof Path)
-      assert.deepStrictEqual(this.tree.get('https://org'), result)
+      assert.deepStrictEqual(this.tree.get('https://org/grog'), result)
     })
   })
 })

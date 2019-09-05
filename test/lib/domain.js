@@ -8,6 +8,13 @@ describe('lib/domain', () => {
     this.domain = new Domain()
   })
 
+  describe('#get()', () => {
+    it('returns undefined when no paths are set', () => {
+      const result = this.domain.getPath('/foo/bar')
+      assert.strictEqual(result, undefined)
+    })
+  })
+
   describe('#toString()', () => {
     it('alphabetizes subdomains when stringifying', () => {
       this.domain.setSubdomain(['foo'])
