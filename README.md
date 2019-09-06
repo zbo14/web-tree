@@ -1,12 +1,40 @@
 # url-tree
 
+A library for constructing a hierarchical tree of URLs *and* a Firefox extension that does this as you browse.
+
 ## Install
+
+### Extension
+
+#### Easy way
+
+TODO
+
+#### Hard way
+
+First, bundle the library for the browser with `npm run bundle`.
+
+Then open Firefox, enter `about:debugging#/runtime/this-firefox` into search bar, click "Load Temporary Add-On", and select `extension/manifest.json` from the project directory.
+
+### Library
 
 `npm i --save url-tree`
 
 ## Usage
 
-### Create a tree
+### Extension
+
+Open devtools in Firefox and click on `url-tree`.
+
+You should see `show` and `clear` buttons in the panel and a `filter` input.
+
+The `show` button will display the *entire* tree or the subtree (if any) that falls under the `filter`ed domain/path.
+
+The `clear` button wipes the state of the tree clean.
+
+### Library
+
+#### Create a tree
 
 ```js
 'use strict'
@@ -16,7 +44,7 @@ const Tree = require('url-tree')
 const tree = new Tree()
 ```
 
-### Add URLs to tree
+#### Add URLs to tree
 
 ```js
 // Set domains
@@ -29,7 +57,7 @@ tree.set('https://bar.foo.com/bam/fob')
 tree.set('https://bar.foo.com/bam/boo')
 ```
 
-### Get URL domain/path in tree
+#### Get URL domain/path in tree
 
 ```js
 tree.get('https://foo.com')             // returns domain
@@ -37,7 +65,7 @@ tree.get('https://bar.foo.com/bam/fob') // returns path
 tree.get('https://foo.com/')            // returns undefined
 ```
 
-### Generate an object representation of tree
+#### Generate an object representation of tree
 
 ```js
 tree.toObject()
@@ -75,7 +103,7 @@ tree.toObject()
 // }
 ```
 
-### Generate a string representation of tree
+#### Generate a string representation of tree
 
 ```js
 tree.toString()
@@ -90,7 +118,7 @@ tree.toString()
 //         ?testing=123
 ```
 
-### Delete URLs from tree
+#### Delete URLs from tree
 
 ```js
 // Delete domains
