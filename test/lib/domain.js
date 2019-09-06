@@ -17,12 +17,12 @@ describe('lib/domain', () => {
 
   describe('#toString()', () => {
     it('alphabetizes subdomains when stringifying', () => {
-      this.domain.setSubdomain(['foo'])
-      this.domain.setSubdomain(['baz'])
-      this.domain.setSubdomain(['fob'])
-      this.domain.setSubdomain(['bar'])
+      this.domain.setSubdomain('foo')
+      this.domain.setSubdomain('baz')
+      this.domain.setSubdomain('fob')
+      this.domain.setSubdomain('bar')
 
-      const result = this.domain.toString(0)
+      const result = this.domain.toString()
 
       assert.strictEqual(result, [
         '.bar',

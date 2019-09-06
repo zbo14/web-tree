@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "url-tree",
+  "version": "1.0",
+  "description": "Constructs hierarchical tree of URLs as you browse",
+  "homepage_url": "https://github.com/zbo14/url-tree",
+  "permissions": [
+    "webRequest",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["dist/bundle.js", "background.js"]
+  },
+  "devtools_page": "devtools/page.html"
+}
