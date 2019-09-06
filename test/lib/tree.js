@@ -71,4 +71,59 @@ describe('lib/tree', () => {
       assert.deepStrictEqual(this.tree.get('https://org/grog'), result)
     })
   })
+
+  describe('#delete()', () => {
+    it('deletes subpath', () => {
+      const url = 'https://bar.foo.com/bam/boo'
+      assert.strictEqual(this.tree.delete(url), true)
+      assert.strictEqual(this.tree.get(url), undefined)
+    })
+
+    it('deletes whole path', () => {
+      const url = 'https://bar.foo.com/'
+      assert.strictEqual(this.tree.delete(url), true)
+      assert.strictEqual(this.tree.get(url), undefined)
+    })
+
+    it('deletes a subdomain', () => {
+      const url = 'https://bah.bag.foo.com'
+      assert.strictEqual(this.tree.delete(url), true)
+      assert.strictEqual(this.tree.get(url), undefined)
+    })
+
+    it('fails to delete path', () => {
+      const result = this.tree.delete('https://bar.foo.com/bam/foo')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete path on top-level domain', () => {
+      const result = this.tree.delete('https://com/foo')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete path when it can\'t find subdomain', () => {
+      const result = this.tree.delete('https://baz.bag.foo.com/wuz/up')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete subpath of subpath that doesn\'t exist', () => {
+      const result = this.tree.delete('https://bar.foo.com/foo/bam/biz')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete subdomain', () => {
+      const result = this.tree.delete('https://baz.bag.foo.com')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete subdomain of subdomain that doesn\'t exist', () => {
+      const result = this.tree.delete('https://baz.bar.bag.foo.com')
+      assert.strictEqual(result, false)
+    })
+
+    it('fails to delete top-level domain', () => {
+      const result = this.tree.delete('https://org')
+      assert.strictEqual(result, false)
+    })
+  })
 })

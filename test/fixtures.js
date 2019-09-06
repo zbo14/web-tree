@@ -4,7 +4,6 @@ const object = {
   com: {
     subdomains: {
       foo: {
-        path: {},
         subdomains: {
           bag: {
             subdomains: {
