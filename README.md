@@ -1,20 +1,19 @@
 # url-tree
 
-A library for constructing a hierarchical tree of URLs *and* a Firefox extension that does this as you browse.
+A library for constructing hierarchical trees of URLs *and* a Firefox extension that does this as you browse.
 
 ## Install
 
 ### Extension
 
-#### Easy way
+[Awaiting review of Mozilla add-on]
 
-TODO
+#### For development
 
-#### Hard way
-
-First, bundle the library for the browser with `npm run bundle`.
-
-Then open Firefox, enter `about:debugging#/runtime/this-firefox` into search bar, click "Load Temporary Add-On", and select `extension/manifest.json` from the project directory.
+1. Clone the repo and bundle the library for the browser with `npm run bundle`
+1. Open Firefox and enter `about:debugging#/runtime/this-firefox` into the search bar
+1. Click "Load Temporary Add-On"
+1. Select `extension/manifest.json` from the project directory
 
 ### Library
 
@@ -28,7 +27,7 @@ Open devtools in Firefox and click on `url-tree`.
 
 You should see `show` and `clear` buttons in the panel and a `filter` input.
 
-The `show` button will display the *entire* tree or the subtree (if any) that falls under the `filter`ed domain/path.
+The `show` button will display the *entire* tree or the subtree that falls under the `filter`ed domain/path (if any).
 
 The `clear` button wipes the state of the tree clean.
 
@@ -65,7 +64,7 @@ tree.get('https://bar.foo.com/bam/fob') // returns path
 tree.get('https://foo.com/')            // returns undefined
 ```
 
-#### Generate an object representation of tree
+#### Generate object representation of tree
 
 ```js
 tree.toObject()
@@ -103,7 +102,7 @@ tree.toObject()
 // }
 ```
 
-#### Generate a string representation of tree
+#### Generate string representation of tree
 
 ```js
 tree.toString()
