@@ -6,25 +6,25 @@ const Path = require('../../lib/path')
 describe('lib/path', () => {
   beforeEach(() => {
     this.path = new Path()
-    this.path.setSubpath(['foo', 'bar', 'baz'])
+    this.path.setSubpath('foo', 'bar', 'baz')
   })
 
   describe('#getSubpath()', () => {
     it('gets sub-path', () => {
-      const result = this.path.getSubpath(['foo', 'bar', 'baz'])
+      const result = this.path.getSubpath('foo', 'bar', 'baz')
       assert.deepStrictEqual(result, new Path())
     })
   })
 
   describe('#setSubpath()', () => {
     it('sets a path that also creates an intermediate path', () => {
-      assert.strictEqual(this.path.getSubpath(['foo', 'bam']), undefined)
+      assert.strictEqual(this.path.getSubpath('foo', 'bam'), undefined)
 
-      this.path.setSubpath(['foo', 'bam', 'baz'])
+      this.path.setSubpath('foo', 'bam', 'baz')
       const path = new Path()
-      path.setSubpath(['baz'])
+      path.setSubpath('baz')
 
-      assert.deepStrictEqual(this.path.getSubpath(['foo', 'bam']), path)
+      assert.deepStrictEqual(this.path.getSubpath('foo', 'bam'), path)
     })
   })
 
@@ -38,7 +38,7 @@ describe('lib/path', () => {
 
       this.path.setSearchParams(searchParams)
 
-      const result = this.path.toString(0)
+      const result = this.path.toString()
 
       assert.strictEqual(result, [
         '?alpha=beta',
@@ -51,10 +51,10 @@ describe('lib/path', () => {
     })
 
     it('alphabetizes subpaths when stringifying', () => {
-      this.path.setSubpath(['zeta'])
-      this.path.setSubpath(['alpha'])
+      this.path.setSubpath('zeta')
+      this.path.setSubpath('alpha')
 
-      const result = this.path.toString(0)
+      const result = this.path.toString()
 
       assert.strictEqual(result, [
         '/alpha',

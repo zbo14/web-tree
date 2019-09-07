@@ -1,8 +1,9 @@
 {
   "name": "url-tree",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "bundle": "cd extension && browserify main.js -o dist/bundle.js",
     "doc": "jsdoc -r lib README.md && open out/index.html",
     "lint": "eslint lib test",
     "test": "nyc mocha --recursive --exit"
@@ -10,6 +11,7 @@
   "author": "Zachary Balder",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "16.5.0",
     "eslint": "6.3.0",
     "eslint-config-standard": "14.1.0",
     "eslint-plugin-import": "2.18.2",
