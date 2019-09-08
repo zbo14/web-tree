@@ -1,4 +1,4 @@
-# url-tree
+# web-tree
 
 A library for constructing hierarchical trees of URLs *and* a Firefox extension that does this as you browse.
 
@@ -17,13 +17,13 @@ A library for constructing hierarchical trees of URLs *and* a Firefox extension 
 
 ### Library
 
-`npm i --save url-tree`
+`npm i --save web-tree`
 
 ## Usage
 
 ### Extension
 
-Open devtools in Firefox and click on `url-tree`.
+Open devtools in Firefox and click on `web-tree`.
 
 You should see `show` and `clear` buttons in the panel and a `filter` input.
 
@@ -38,7 +38,7 @@ The `clear` button wipes the state of the tree clean.
 ```js
 'use strict'
 
-const Tree = require('url-tree')
+const Tree = require('web-tree')
 
 const tree = new Tree()
 ```
@@ -154,6 +154,6 @@ tree.toString()
 
 Please do!
 
-If you find a bug, want a feature added, or just have a question, feel free to [open an issue](https://github.com/zbo14/url-tree/issues/new). In addition, you're welcome to [create a pull request](https://github.com/zbo14/url-tree/compare/develop...) addressing an issue. You should push your changes to a feature branch and request merge to `develop`.
+If you find a bug, want a feature added, or just have a question, feel free to [open an issue](https://github.com/zbo14/web-tree/issues/new). In addition, you're welcome to [create a pull request](https://github.com/zbo14/web-tree/compare/develop...) addressing an issue. You should push your changes to a feature branch and request merge to `develop`.
 
 Make sure linting and tests pass and coverage is 💯 before creating a pull request!

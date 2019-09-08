@@ -1,5 +1,5 @@
 {
-  "name": "url-tree",
+  "name": "web-tree",
   "version": "1.0.0",
   "main": "lib/index.js",
   "scripts": {

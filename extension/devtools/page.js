@@ -3,7 +3,7 @@
 /* global browser */
 
 browser.devtools.panels.create(
-  'url-tree',
+  'web-tree',
   '/icons/tree.png',
   '/devtools/panel.html'
 )

@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "url-tree",
+  "name": "web-tree",
   "version": "1.0",
   "description": "Constructs hierarchical tree of URLs as you browse",
-  "homepage_url": "https://github.com/zbo14/url-tree",
+  "homepage_url": "https://github.com/zbo14/web-tree",
   "permissions": [
     "webRequest",
     "<all_urls>"
