@@ -1,19 +1,21 @@
 # web-tree
 
-A library for constructing hierarchical trees of URLs *and* a Firefox extension that does this as you browse.
+This repo has two components:
+- An npm library for constructing hierarchical trees of URLs
+- A Firefox add-on that builds a URL tree as you browse and allows you to view the tree and filter by domain and/or path
 
 ## Install
 
-### Extension
+### Add-on
 
-[Awaiting review of Mozilla add-on]
+You can install it [here](https://addons.mozilla.org/en-US/firefox/addon/web-tree)!
 
 #### For development
 
 1. Clone the repo and bundle the library for the browser with `npm run bundle`
 1. Open Firefox and enter `about:debugging#/runtime/this-firefox` into the search bar
 1. Click "Load Temporary Add-On"
-1. Select `extension/manifest.json` from the project directory
+1. Select `add-on/manifest.json` from the project directory
 
 ### Library
 
@@ -21,7 +23,7 @@ A library for constructing hierarchical trees of URLs *and* a Firefox extension 
 
 ## Usage
 
-### Extension
+### Add-on
 
 Open devtools in Firefox and click on `web-tree`.
 

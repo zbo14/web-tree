@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "main": "lib/index.js",
   "scripts": {
-    "bundle": "cd extension && browserify main.js -o dist/bundle.js",
+    "bundle": "cd add-on && browserify main.js -o dist/bundle.js",
     "doc": "jsdoc -r lib README.md && open out/index.html",
     "lint": "eslint lib test",
     "test": "nyc mocha --recursive --exit"
