@@ -1,0 +1,6 @@
+coverage
+.DS_Store
+extension
+node_modules
+.nyc_output
+out
