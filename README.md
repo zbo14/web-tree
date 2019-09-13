@@ -1,7 +1,7 @@
 # web-tree
 
 This repo has two components:
-- An npm library for constructing hierarchical trees of URLs
+- An npm library for constructing URL trees
 - A Firefox add-on that builds a URL tree as you browse and allows you to view the tree and filter by domain and/or path
 
 ## Install
