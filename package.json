@@ -1,6 +1,6 @@
 {
   "name": "web-tree",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "lib/index.js",
   "scripts": {
     "bundle": "cd add-on && browserify main.js -o dist/bundle.js",
