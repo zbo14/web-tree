@@ -1,7 +1,11 @@
 {
   "name": "web-tree",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zbo14"
+  },
   "scripts": {
     "bundle": "cd add-on && browserify main.js -o dist/bundle.js",
     "doc": "jsdoc -r lib README.md && open out/index.html",
@@ -22,6 +26,14 @@
     "mocha": "6.2.0",
     "nyc": "14.1.1"
   },
+  "keywords": [
+    "add-on",
+    "firefox",
+    "http",
+    "https",
+    "tree",
+    "url"
+  ],
   "nyc": {
     "check-coverage": true,
     "per-file": true,
