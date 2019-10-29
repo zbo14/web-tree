@@ -4,9 +4,9 @@ This repo has two components:
 - An npm library for constructing URL trees
 - A Firefox add-on that builds a URL tree as you browse and allows you to view the tree and filter by domain and/or path
 
-## Install
+## Add-on
 
-### Add-on
+### Install
 
 You can install it [here](https://addons.mozilla.org/en-US/firefox/addon/web-tree)!
 
@@ -17,23 +17,23 @@ You can install it [here](https://addons.mozilla.org/en-US/firefox/addon/web-tre
 1. Click "Load Temporary Add-On"
 1. Select `add-on/manifest.json` from the project directory
 
-### Library
-
-`npm i --save web-tree`
-
-## Usage
-
-### Add-on
+### Usage
 
 Open devtools in Firefox and click on `web-tree`.
 
 You should see `show` and `clear` buttons in the panel and a `filter` input.
 
-The `show` button will display the *entire* tree or the subtree that falls under the `filter`ed domain/path (if any).
+The `show` button will display an expandable/collapsible subtree that falls under the `filter`ed domain/path (if any).
 
 The `clear` button wipes the state of the tree clean.
 
-### Library
+## Library
+
+### Install
+
+`npm i web-tree`
+
+### Usage
 
 #### Create a tree
 
@@ -119,6 +119,35 @@ tree.toString()
 //         ?testing=123
 ```
 
+#### Generate HTML representation of tree
+
+```js
+tree.toHTML()
+
+// <button class="web-tree-btn">.com</button>
+// <div class="web-tree-div">
+//   <button class="web-tree-btn">.foo</button>
+//   <div class="web-tree-div">
+//     <button class="web-tree-btn">.bar</button>
+//     <div class="Web-tree-div">
+//       <button class="web-tree-btn">/bam</button>
+//       <div class="web-tree-div">
+//         <button class="web-tree-btn">/boo</button>
+//         <div class="web-tree-div">
+//         </div>
+//         <button class="web-tree-btn">/fob</button>
+//         <div class="web-tree-div">
+//         </div>
+//       </div>
+//       <button class="web-tree-btn">.baz</button>
+//       <div class="web-tree-div">
+//         <p>?testing=123</p>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+```
+
 #### Delete URLs from tree
 
 ```js
@@ -140,15 +169,15 @@ tree.toString()
 //         /boo
 ```
 
-## Test
+### Test
 
 `npm test`
 
-## Lint
+### Lint
 
 `npm run lint`
 
-## Documentation
+### Documentation
 
 `npm run doc`
 

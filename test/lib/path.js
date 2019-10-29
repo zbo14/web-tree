@@ -28,6 +28,60 @@ describe('lib/path', () => {
     })
   })
 
+  describe('#toHTML()', () => {
+    it('alphabetizes search params when converting to HTML', () => {
+      const searchParams = new Map([
+        ['zeta', 'ziti'],
+        ['alpha', 'beta'],
+        ['zoom', 'boom']
+      ])
+
+      this.path.setSearchParams(searchParams)
+
+      const result = this.path.toHTML()
+
+      assert.strictEqual(result, [
+        '<p>?alpha=beta</p>',
+        '<p>?zeta=ziti</p>',
+        '<p>?zoom=boom</p>',
+        '<button class="web-tree-btn">/foo</button>',
+        '<div class="web-tree-div">',
+        '  <button class="web-tree-btn">/bar</button>',
+        '  <div class="web-tree-div">',
+        '    <button class="web-tree-btn">/baz</button>',
+        '    <div class="web-tree-div">',
+        '    </div>',
+        '  </div>',
+        '</div>'
+      ].join('\n'))
+    })
+
+    it('alphabetizes subpaths when converting to HTML', () => {
+      this.path.setSubpath('zeta')
+      this.path.setSubpath('alpha')
+
+      const result = this.path.toHTML()
+
+      assert.strictEqual(result, [
+        '<button class="web-tree-btn">/alpha</button>',
+        '<div class="web-tree-div">',
+        '</div>',
+        '<button class="web-tree-btn">/foo</button>',
+        '<div class="web-tree-div">',
+        '  <button class="web-tree-btn">/bar</button>',
+        '  <div class="web-tree-div">',
+        '    <button class="web-tree-btn">/baz</button>',
+        '    <div class="web-tree-div">',
+        '    </div>',
+        '  </div>',
+        '</div>',
+        '<button class="web-tree-btn">/zeta</button>',
+        '<div class="web-tree-div">',
+        '</div>'
+      ].join('\n'))
+    })
+  })
+
   describe('#toString()', () => {
     it('alphabetizes search params when stringifying', () => {
       const searchParams = new Map([

@@ -12,6 +12,13 @@ describe('lib/tree', () => {
     fixtures.urls.forEach(url => this.tree.set(url))
   })
 
+  describe('#toHTML()', () => {
+    it('converts tree to HTML', () => {
+      const result = this.tree.toHTML()
+      assert.strictEqual(result, fixtures.html)
+    })
+  })
+
   describe('#toObject()', () => {
     it('converts tree to an object', () => {
       const result = this.tree.toObject()
