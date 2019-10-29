@@ -1,5 +1,41 @@
 'use strict'
 
+const html = [
+  '<button class="web-tree-btn">.com</button>',
+  '<div class="web-tree-div">',
+  '  <button class="web-tree-btn">.foo</button>',
+  '  <div class="web-tree-div">',
+  '    <button class="web-tree-btn">.bag</button>',
+  '    <div class="web-tree-div">',
+  '      <button class="web-tree-btn">.bah</button>',
+  '      <div class="web-tree-div">',
+  '        <p>#bloop</p>',
+  '        <p>#boop</p>',
+  '        <p>#bop</p>',
+  '      </div>',
+  '    </div>',
+  '    <button class="web-tree-btn">.bar</button>',
+  '    <div class="web-tree-div">',
+  '      <button class="web-tree-btn">/bam</button>',
+  '      <div class="web-tree-div">',
+  '        <button class="web-tree-btn">/boo</button>',
+  '        <div class="web-tree-div">',
+  '        </div>',
+  '        <button class="web-tree-btn">/fob</button>',
+  '        <div class="web-tree-div">',
+  '        </div>',
+  '      </div>',
+  '      <button class="web-tree-btn">.baz</button>',
+  '      <div class="web-tree-div">',
+  '        <p>?searching4=something</p>',
+  '        <p>?testing=123</p>',
+  '        <p>?testing=456</p>',
+  '      </div>',
+  '    </div>',
+  '  </div>',
+  '</div>'
+].join('\n')
+
 const object = {
   com: {
     subdomains: {
@@ -79,6 +115,7 @@ const urls = [
 ]
 
 module.exports = {
+  html,
   object,
   string,
   urls

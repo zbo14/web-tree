@@ -25,7 +25,7 @@ browser.runtime.onMessage.addListener(async msg => {
 
     case 'show':
       result = msg.url ? tree.get(msg.url) : tree
-      result = result && result.toString()
+      result = result && result.toHTML()
       break
   }
 
