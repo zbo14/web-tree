@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "web-tree",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Constructs hierarchical tree of URLs as you browse",
   "homepage_url": "https://github.com/zbo14/web-tree",
   "permissions": [
